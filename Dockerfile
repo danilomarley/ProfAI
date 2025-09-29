@@ -4,9 +4,12 @@
 FROM node:18-alpine AS frontend-build
 WORKDIR /app/frontend
 
+# Install build dependencies
+RUN apk add --no-cache python3 make g++ git
+
 # Copy package files and install dependencies
 COPY package*.json ./
-RUN npm ci --only=production --silent
+RUN npm ci --silent
 
 # Copy source and build
 COPY . .
@@ -15,6 +18,9 @@ RUN npm run build
 # Stage 2: Build backend
 FROM node:18-alpine AS backend-build
 WORKDIR /app/backend
+
+# Install build dependencies for native modules
+RUN apk add --no-cache python3 make g++ git
 
 # Copy package files and install production dependencies
 COPY backend/package*.json ./
