@@ -1,0 +1,338 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  
+  body {
+    @apply bg-white text-gray-900 font-montserrat;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Melhorias de acessibilidade */
+  :focus {
+    @apply outline-none ring-2 ring-unifor-blue ring-offset-2;
+  }
+  
+  /* Melhor contraste para texto */
+  .text-gray-600 {
+    @apply text-gray-700;
+  }
+  
+  /* Melhor contraste para links */
+  a {
+    @apply text-unifor-blue hover:text-blue-800 focus:text-blue-800;
+  }
+  
+  /* Melhor contraste para botões */
+  button:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+  
+  /* Melhor contraste para inputs */
+  input, textarea, select {
+    @apply border-gray-300 focus:border-unifor-blue focus:ring-unifor-blue;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-unifor-blue hover:bg-blue-800 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-unifor-light-blue hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-unifor-blue text-unifor-blue hover:bg-unifor-blue hover:text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-lg border border-gray-200 p-6;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-unifor-light-blue focus:border-transparent transition-all duration-200;
+  }
+  
+  .text-error {
+    @apply text-red-500 line-through;
+  }
+  
+  .text-suggestion {
+    @apply text-green-600 underline;
+  }
+  
+  .profai-message {
+    @apply bg-gradient-to-r from-unifor-light-blue to-blue-400 text-white rounded-2xl p-4 shadow-lg;
+  }
+  
+  .progress-bar {
+    @apply w-full bg-gray-200 rounded-full h-2.5;
+  }
+  
+  .progress-fill {
+    @apply bg-gradient-to-r from-unifor-light-blue to-unifor-blue h-2.5 rounded-full transition-all duration-500;
+  }
+  
+  /* Componentes responsivos */
+  .container-responsive {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .grid-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+  }
+  
+  .flex-responsive {
+    @apply flex flex-col sm:flex-row gap-4;
+  }
+  
+  /* Sidebar responsiva */
+  .sidebar-mobile {
+    @apply fixed inset-y-0 left-0 z-50 w-80 transform transition-transform duration-300 ease-in-out;
+  }
+  
+  .sidebar-mobile.hidden {
+    @apply -translate-x-full;
+  }
+  
+  .sidebar-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 z-40;
+  }
+  
+  /* Editor responsivo */
+  .editor-container {
+    @apply flex flex-col lg:flex-row h-full;
+  }
+  
+  .editor-main {
+    @apply flex-1 min-w-0 min-h-0;
+  }
+  
+  .editor-sidebar {
+    @apply w-full lg:w-80 border-t lg:border-t-0 lg:border-l border-gray-200 bg-gray-50;
+  }
+  
+          /* Estilos para o Quill Editor */
+          .ql-editor {
+            font-family: 'Times New Roman', serif !important;
+            font-size: 12pt !important;
+            line-height: 1.6 !important;
+            padding: 2rem !important;
+            min-height: 500px !important;
+            max-height: calc(100vh - 200px) !important;
+            background: white !important;
+            overflow-y: auto !important;
+            word-wrap: break-word !important;
+            white-space: pre-wrap !important;
+          }
+          
+          /* Estilos para correções visuais */
+          .correction-error {
+            background-color: #fee2e2 !important;
+            color: #dc2626 !important;
+            text-decoration: line-through !important;
+            border-bottom: 2px solid #ef4444 !important;
+          }
+          
+          .correction-warning {
+            background-color: #fef3c7 !important;
+            color: #d97706 !important;
+            text-decoration: underline !important;
+            border-bottom: 2px solid #f59e0b !important;
+          }
+          
+          .correction-suggestion {
+            background-color: #dbeafe !important;
+            color: #2563eb !important;
+            text-decoration: underline !important;
+            border-bottom: 2px solid #3b82f6 !important;
+          }
+          
+          .correction-accepted {
+            background-color: #d1fae5 !important;
+            color: #065f46 !important;
+            text-decoration: underline !important;
+            border-bottom: 2px solid #10b981 !important;
+          }
+          
+          .correction-rejected {
+            background-color: #f3f4f6 !important;
+            color: #6b7280 !important;
+          }
+  
+  .ql-toolbar {
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    background: #f9fafb !important;
+    padding: 8px 12px !important;
+  }
+  
+  .ql-container {
+    border: none !important;
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: calc(100vh - 200px) !important;
+    max-height: calc(100vh - 200px) !important;
+    overflow: hidden !important;
+  }
+  
+  .ql-editor.ql-blank::before {
+    color: #9ca3af !important;
+    font-style: italic !important;
+  }
+  
+  .ql-snow .ql-tooltip {
+    z-index: 1000 !important;
+  }
+  
+  .ql-editor p {
+    margin-bottom: 1em !important;
+  }
+  
+  .ql-editor h1 {
+    font-size: 2em !important;
+    font-weight: bold !important;
+    margin: 1em 0 0.5em 0 !important;
+  }
+  
+  .ql-editor h2 {
+    font-size: 1.5em !important;
+    font-weight: bold !important;
+    margin: 1em 0 0.5em 0 !important;
+  }
+  
+  .ql-editor h3 {
+    font-size: 1.17em !important;
+    font-weight: bold !important;
+    margin: 1em 0 0.5em 0 !important;
+  }
+  
+  .ql-editor ul, .ql-editor ol {
+    margin: 1em 0 !important;
+    padding-left: 2em !important;
+  }
+  
+  .ql-editor blockquote {
+    border-left: 4px solid #e5e7eb !important;
+    margin: 1em 0 !important;
+    padding-left: 1em !important;
+    font-style: italic !important;
+  }
+  
+  /* Melhorar aparência dos botões da toolbar */
+  .ql-toolbar .ql-formats {
+    margin-right: 15px !important;
+  }
+  
+  .ql-toolbar button {
+    padding: 5px !important;
+    margin: 2px !important;
+  }
+  
+  .ql-toolbar button:hover {
+    background-color: #e5e7eb !important;
+  }
+  
+  .ql-toolbar button.ql-active {
+    background-color: #3b82f6 !important;
+    color: white !important;
+  }
+  
+  /* Botões responsivos */
+  .btn-responsive {
+    @apply w-full sm:w-auto px-4 py-2 text-sm font-medium rounded-lg transition-colors;
+  }
+  
+  /* Cards responsivos */
+  .card-responsive {
+    @apply bg-white rounded-lg shadow-lg p-4 sm:p-6;
+  }
+  
+  /* Texto responsivo */
+  .text-responsive {
+    @apply text-sm sm:text-base;
+  }
+  
+  .heading-responsive {
+    @apply text-lg sm:text-xl lg:text-2xl font-semibold;
+  }
+  
+  /* Formulários responsivos */
+  .form-group {
+    @apply space-y-2;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-gray-700;
+  }
+  
+  .form-input {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-unifor-blue focus:border-transparent;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Acessibilidade */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  }
+  
+  .skip-link {
+    @apply absolute top-0 left-0 bg-unifor-blue text-white px-4 py-2 rounded-br-lg transform -translate-y-full focus:translate-y-0 transition-transform;
+  }
+  
+  /* Alto contraste */
+  @media (prefers-contrast: high) {
+    .text-gray-600 {
+      @apply text-gray-900;
+    }
+    
+    .border-gray-200 {
+      @apply border-gray-400;
+    }
+  }
+  
+  /* Redução de movimento */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      @apply transition-none;
+    }
+  }
+  
+  /* Modo escuro */
+  @media (prefers-color-scheme: dark) {
+    .dark-mode {
+      @apply bg-gray-900 text-gray-100;
+    }
+  }
+}
+

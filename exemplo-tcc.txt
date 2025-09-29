@@ -1,0 +1,28 @@
+Este é um trabalho de conclusão de curso sobre inteligência artificial na educação.
+
+INTRODUÇÃO
+
+A inteligência artificial (IA) tem se tornado uma ferramenta cada vez mais importante na educação moderna. Este trabalho visa analisar como as tecnologias de IA podem melhorar o processo de ensino-aprendizagem.
+
+Nao é possível ignorar o impacto que essas tecnologias têm causado. Voce pode ver que muitas instituições já estão adotando essas ferramentas pra melhorar seus processos educacionais.
+
+OBJETIVOS
+
+O objetivo geral é investigar as aplicações da inteligência artificial na educação e seus impactos no desempenho dos estudantes.
+
+Os objetivos específicos incluem:
+- Analisar as principais tecnologias de IA aplicadas à educação
+- Avaliar os benefícios e desafios da implementação  
+- Propor diretrizes para uso efetivo da IA em ambientes educacionais
+
+METODOLOGIA
+
+A metodologia utilizada será de pesquisa bibliográfica e estudo de caso, com análise qualitativa e quantitativa dos dados coletados.
+
+Ta claro que a pesquisa tbm vai incluir entrevistas com professores e alunos q já utilizam essas tecnologias.
+
+RESULTADOS ESPERADOS
+
+Os resultados esperados incluem melhorias significativas no desempenho dos estudantes e maior eficiência no processo educacional.
+
+Nao há dúvidas de que a IA pode revolucionar a educação, mas é importante considerar os aspectos éticos e pedagógicos envolvidos.

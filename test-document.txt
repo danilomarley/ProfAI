@@ -1,0 +1,14 @@
+Este é um documento de teste para demonstrar as correções da ProfAi.
+
+Aqui temos alguns erros comuns que a IA deve detectar:
+
+1. "nao" deveria ser "não"
+2. "voce" deveria ser "você" 
+3. "pra" deveria ser "para"
+4. "tbm" deveria ser "também"
+5. "ta" deveria ser "está"
+6. "q" deveria ser "que"
+
+Este texto contém várias abreviações e erros de ortografia que a ProfAi deve identificar e sugerir correções.
+
+A formatação ABNT também pode ser aplicada para melhorar a apresentação do documento.

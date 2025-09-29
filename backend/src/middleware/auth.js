@@ -1,0 +1,40 @@
+import jwt from 'jsonwebtoken'
+import pool from '../database/connection.js'
+
+export const authenticateToken = async (req, res, next) => {
+  const authHeader = req.headers['authorization']
+  const token = authHeader && authHeader.split(' ')[1]
+
+  if (!token) {
+    return res.status(401).json({ error: 'Token de acesso necessário' })
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'profai-secret-key')
+    
+    // Buscar usuário no banco
+    const result = await pool.query(
+      'SELECT id, name, email, course, university, avatar_url FROM users WHERE id = $1',
+      [decoded.userId]
+    )
+
+    if (result.rows.length === 0) {
+      return res.status(401).json({ error: 'Usuário não encontrado' })
+    }
+
+    req.user = result.rows[0]
+    next()
+  } catch (error) {
+    console.error('Erro na autenticação:', error)
+    return res.status(403).json({ error: 'Token inválido' })
+  }
+}
+
+export const generateToken = (userId) => {
+  return jwt.sign(
+    { userId },
+    process.env.JWT_SECRET || 'profai-secret-key',
+    { expiresIn: '24h' }
+  )
+}
+
